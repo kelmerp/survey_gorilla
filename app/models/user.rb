@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   attr_reader :entered_password
-
+  has_many :sessions
+  has_many :taken_surveys, through: :sessions, source: :surveys
+  has_many :created_surveys
   validates :entered_password, :length => { :minimum => 6 }
   validates :email, :uniqueness => true, :format => /.+@.+\..+/ # imperfect, but okay
 
@@ -21,5 +23,4 @@ class User < ActiveRecord::Base
     return user if user && (user.password == password)
     nil # either invalid email or wrong password
   end
-
 end
