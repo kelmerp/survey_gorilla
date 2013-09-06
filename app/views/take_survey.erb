@@ -1,0 +1,25 @@
+<%= @survey.title %>
+
+<% if !current_user %>
+  <a href='/sign-in'>Log In to Take Survey</a>
+<% end %>
+
+<form action='/submit_survey' method="POST">
+  <% @survey.questions.each do |q| %>
+    <div class="questions">
+    <%= q.question %>
+      <ul class="choices">
+        <% q.choices.each do |c| %>
+          <li>  
+            <input type="radio" name="<%q.question%>" value="<%=c.choice %>">
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <% if current_user %>
+    <input type="submit" name="Submit">
+  <% else %>
+    <a href='/sign-in'>Log In to Take Survey</a>
+  <% end %>
+</form>
