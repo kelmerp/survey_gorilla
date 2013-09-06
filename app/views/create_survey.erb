@@ -1,15 +1,27 @@
   <h1>Create Survey</h1>
 
   <form method="post" action="/create_survey">
-    <label class="label" for="email">Title</label>
-    <input type="text" name="survey[title]" placeholder="Enter Title" value=""><br>
-    <label class="label" for="password">Question</label>
-    <input type="text" name="question[question_1]" placeholder="Enter Question"><br>
-    <label class="label" for="password">Choices</label>
-    <input type="text" name="choice[choice_1]" placeholder="Enter Choice One"><br>
-    <input type="text" name="choice[choice_2]" placeholder="Enter Choice Two"><br> 
-    <input type="text" name="choice[choice_3]" placeholder="Enter Choice Three"><br>  
-<!--     <label class="label" for="password">Question</label>
-    <input type="text" name="question" placeholder="Enter Question"><br> -->
+    <table>
+      <tr>
+        <td><label class="label" for="email">Title</label></td>
+        <td><input type="text" name="survey[title]" placeholder="Enter Title" value=""></td>
+      </tr>
+      <tr>
+        <td><label class="label" for="password">Question</label></td>
+        <td><input type="text" name="question[question_1]" placeholder="Enter Question"></td>
+      </tr>
+      <tr>
+        <td><label class="label" for="password">Choices</label></td>
+        <td><input type="text" name="choice[choice_1]" placeholder="Enter Choice One"></td>
+      </tr>
+      <tr>
+        <td></td><td><input type="text" name="choice[choice_2]" placeholder="Enter Choice Two"></td>
+      </tr>
+      <tr>
+        <td></td><td><input type="text" name="choice[choice_3]" placeholder="Enter Choice Three"></td>
+      </tr>
+  <!--     <label class="label" for="password">Question</label>
+      <input type="text" name="question" placeholder="Enter Question"><br> -->
+    </table>
     <div class="submit"><input type="submit" value="Sign In"></div>
   </form>
