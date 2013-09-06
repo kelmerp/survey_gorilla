@@ -14,7 +14,7 @@ post '/sign-in' do
   user = User.authenticate(@email, params[:password])
   if user
     session[:user_id] = user.id
-    redirect '/user/:id'
+    redirect "/user/#{@user.id}"
   else
     @error = "Invalid email or password."
     erb :index
@@ -24,8 +24,9 @@ end
 post '/sign-up' do
   @user = User.new params[:user]
   if @user.save
+    puts @user.inspect
     session[:user_id] = @user.id
-    redirect '/user/:id'
+    redirect "/user/#{@user.id}"
   else
     erb :index
   end
