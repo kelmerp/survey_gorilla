@@ -10,17 +10,19 @@
   <title></title>
 </head>
 <body>
-
-  <nav>
-    <ul>
-      <% if current_user %>
-        <li><a id="sign-out" href="/sessions/<%= current_user.id %>">Sign Out</a></li>
-      <% else %>
-        <li><a href="/sessions/new">Sign In</a></li>
-        <li><a href="/users/new">Sign Up</a></li>
-      <% end %>
-    </ul>
-
+  
+  <nav class="header">
+    <div class="header_text">
+      <div id="app_name">Gorilla Survey</div>
+      <ul>
+        <% if current_user %>
+          <li><a id="sign-out" href="/sign-out">Sign Out</a></li>
+        <% else %>
+          <li><a href="/sessions/new">Sign In</a></li>
+          <li><a href="/users/new">Sign Up</a></li>
+        <% end %>
+      </ul>
+    </div>
   </nav>
 
   <%= yield %>
