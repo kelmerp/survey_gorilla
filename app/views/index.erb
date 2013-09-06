@@ -5,7 +5,7 @@
     <div class="errors"><%= @error %></div>
   <% end %>
 
-  <form id="sign-in" method="post" action="/login">
+  <form id="sign-in" method="post" action="/sign-in">
     <label class="label" for="email">Email</label>
     <input type="email" name="user[email]" placeholder="e.g., me@example.com"><br>
     <label class="label" for="user[password]">Password</label>
@@ -16,7 +16,7 @@
 
  <h1>Sign Up</h1>
 
-  <form id="sign-up" method="post" action="/login">
+  <form id="sign-up" method="post" action="/sign-up">
     <br>
 
     <label class="label" for="user[email]">Email</label>
