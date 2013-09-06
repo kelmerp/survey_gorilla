@@ -1,0 +1,26 @@
+<h1>Create</h1>
+
+<form id="create_survey" method="post" action="/create_survey">
+  <div class="submit"><input type="submit" value="Create Survey"></div>
+</form>
+
+Take a Survey<br>
+<ul>
+  <%= @untaken_surveys.each do |u| %>
+    <li>
+      <a href="/survey<%= u.id %>"><%= u.title %></a>
+    </li>
+  <% end %>
+</ul>
+
+
+My Surveys<br>
+<ul>
+  <%= @made_surveys.each do |u| %>
+    <li>
+      <a href="/survey<%= u.id %>/results"><%= u.title %></a>
+    </li>
+  <% end %>
+</ul>
+
+
