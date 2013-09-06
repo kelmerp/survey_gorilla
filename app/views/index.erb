@@ -1,0 +1,35 @@
+<div class="container">
+  <h1>Sign In</h1>
+
+  <% if @error %>
+    <div class="errors"><%= @error %></div>
+  <% end %>
+
+  <form id="sign-in" method="post" action="/login">
+    <label class="label" for="email">Email</label>
+    <input type="email" name="user[email]" placeholder="e.g., me@example.com" value="<%= @email %>"><br>
+    <label class="label" for="user[password]">Password</label>
+    <input type="password" name="user[password]" placeholder="6 or more characters">
+    <br>
+    <div class="submit"><input type="submit" value="Sign In"></div>
+  </form>
+
+ <h1>Sign Up</h1>
+
+  <form id="sign-up" method="post" action="/login">
+    <br>
+
+    <label class="label" for="user[email]">Email</label>
+    <input type="email" name="user[email]" placeholder="e.g., me@example.com" value="<%= @user.email %>">
+    <span id="email-errors" class="errors"></span>
+    <br>
+
+    <label class="label" for="password">Password</label>
+    <input type="password" name="user[password]" placeholder="6 or more characters">
+    <span id="entered_password-errors" class="errors"></span>    
+    <br>
+
+    <div class="submit"><input type="submit" value="Sign Up"></div>
+  </form>
+
+</div>
