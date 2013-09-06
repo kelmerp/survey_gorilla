@@ -1,8 +1,8 @@
 class User < ActiveRecord::Base
   attr_reader :entered_password
   has_many :sessions
-  has_many :taken_surveys, through: :sessions, source: :surveys
-  has_many :created_surveys
+  has_many :taken_surveys, through: :sessions, source: :survey
+  has_many :created_surveys, class_name: "Survey", foreign_key: :creator_id
   validates :entered_password, :length => { :minimum => 6 }
   validates :email, :uniqueness => true, :format => /.+@.+\..+/ # imperfect, but okay
 
