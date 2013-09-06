@@ -1,4 +1,20 @@
 <h1><%= @survey.title %> Results </h1>
 
-<%=@question%>
+<div id="num_completed">Surveys Completed: <%= @survey.takers.count %></div>
 
+<div class="results">
+  <ol>
+    <%@question.each do |q|%>
+      <li>
+        <%=q.question%>
+        <ul>
+          <%q.choices.each do |c|%>
+            <li><%=c.choice%> = <%=c.responses.count%></li>
+          <%end%>
+        <ul>
+      </li>
+    <%end%>
+  </ol>
+</div>
+
+<a heref="/user/<%current_user.id%>">Return to Profile</a>
