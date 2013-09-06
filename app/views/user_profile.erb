@@ -1,6 +1,6 @@
-<h1>Create</h1>
+<h1><%= current_user.email %></h1>
 
-<form id="create_survey" method="get" action="/survey/create">
+<form id="create_survey" method="post" action="/survey/create">
   <div class="submit"><input type="submit" value="Create Survey"></div>
 </form>
 
