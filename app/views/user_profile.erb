@@ -16,7 +16,7 @@ Take a Survey<br>
 
 My Surveys<br>
 <ul>
-  <%= @made_surveys.each do |u| %>
+  <% @made_surveys.each do |u| %>
     <li>
       <a href="/survey<%= u.id %>/results"><%= u.title %></a>
     </li>
