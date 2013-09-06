@@ -17,6 +17,10 @@
   position: relative;
 }
 
+.header ul li a:hover{
+  color: #F7FE2E;
+}
+
 .header ul li{
   list-style-type: none;
   display: inline-block;
@@ -48,6 +52,10 @@
 
 #sign-up {
   padding-left: 20px;
+}
+
+body { 
+  background-image:
 }
 
 

@@ -6,7 +6,7 @@
 
 Take a Survey<br>
 <ul>
-  <%= @untaken_surveys.each do |u| %>
+  <% @untaken_surveys.each do |u| %>
     <li>
       <a href="/survey<%= u.id %>"><%= u.title %></a>
     </li>

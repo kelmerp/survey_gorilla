@@ -4,7 +4,7 @@
   <a href='/sign-in'>Log In to Take Survey</a>
 <% end %>
 
-<form action='/submit_survey' method="POST">
+<form action='/survey/submit' method="POST">
   <% @survey.questions.each do |q| %>
     <div class="questions">
     <%= q.question %>
@@ -22,4 +22,5 @@
   <% else %>
     <a href='/sign-in'>Log In to Take Survey</a>
   <% end %>
+    <input type="hidden" name="survey_id" value="<%=@survey.id%>">
 </form>
