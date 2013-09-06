@@ -1,10 +1,8 @@
 <div class="container">
   <h1>Sign In</h1>
 
-  <% if @error %>
-    <div class="errors"><%= @error %></div>
-  <% end %>
-
+  <div class="errors"><%= @error if @error%></div>
+  
   <form id="sign-in" method="post" action="/login">
     <label class="label" for="email">Email</label>
     <input type="email" name="user[email]" placeholder="e.g., me@example.com"><br>
@@ -31,5 +29,4 @@
 
     <div class="submit"><input type="submit" value="Sign Up"></div>
   </form>
-
 </div>
