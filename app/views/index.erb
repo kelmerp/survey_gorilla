@@ -4,29 +4,34 @@
   <div class="errors"><%= @error if @error%></div>
   
  <form id="sign-in" method="post" action="/sign-in">
-    <label class="label" for="email">Email</label>
-    <input type="email" name="user[email]" placeholder="e.g., me@example.com"><br>
-    <label class="label" for="user[password]">Password</label>
-    <input type="password" name="user[password]" placeholder="6 or more characters">
-    <br>
+    <table>
+      <tr>
+        <td><label class="label" for="email">Email</label></td>
+        <td><input type="email" name="user[email]" placeholder="e.g., me@example.com"></td>
+      </tr>
+      <tr>
+        <td><label class="label" for="user[password]">Password</label></td>
+        <td><input type="password" name="user[password]" placeholder="6 or more characters"></td>
+      </tr>
+    </table>
     <div class="submit"><input type="submit" value="Sign In"></div>
   </form>
 
  <h1>Sign Up</h1>
 
   <form id="sign-up" method="post" action="/sign-up">
-    <br>
-
-    <label class="label" for="user[email]">Email</label>
-    <input type="email" name="user[email]" placeholder="e.g., me@example.com">
-    <span id="email-errors" class="errors"></span>
-    <br>
-
-    <label class="label" for="password">Password</label>
-    <input type="password" name="user[password]" placeholder="6 or more characters">
-    <span id="entered_password-errors" class="errors"></span>    
-    <br>
-
+    <table>
+      <tr>
+        <td><label class="label" for="user[email]">Email</label></td>
+        <td><input type="email" name="user[email]" placeholder="e.g., me@example.com"></td>
+        <td><span id="email-errors" class="errors"></span></td>
+      </tr>
+      <tr>
+        <td><label class="label" for="password">Password</label></td>
+        <td><input type="password" name="user[password]" placeholder="6 or more characters"></td>
+        <td><span id="entered_password-errors" class="errors"></span></td>    
+      </tr>
+    </table>
     <div class="submit"><input type="submit" value="Sign Up"></div>
   </form>
 </div>
