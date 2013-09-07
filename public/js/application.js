@@ -28,7 +28,9 @@ $(document).ready(function() {
     }    
   })
 
-  $('.del_choice').on('click',function(){
+  $('tr').on('click','.del_choice',function(){
+    var x = this.parent();
+    console.log(x);
     $(this).parent().parent().remove();
   });
 
