@@ -8,9 +8,11 @@ get '/sign-out' do
   redirect to "/"
 end
 
-get '/new_question' do
-    erb :_new_question, :layout => false
+get '/new_question/:id' do
   
+  @qid = params[:id]
+  puts @qid
+  erb :_new_question, :layout => false
 end
 
 ########## POST ROUTES ##########

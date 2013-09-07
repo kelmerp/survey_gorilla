@@ -1,19 +1,20 @@
+<tr>
+  <td><label class="label" for="question">Question</label></td>
+  <td><input type="text" name="question[question_1]" placeholder="Enter Question"></td>
+  <td><a class="del_question" href="#">Delete</a></td>
+    <td><a class="add_question" href="#">Add</a></td>
+</tr>
+<tr>
+  <td><label class="label" for="choices">Choices</label></td>
+</tr>
+<% 2.times do |n| %>
+  <tr id="choice_<%= n+1 %>">
+    <td></td>
+    <td><input type="text" name="question_<%= @qid %>[choice_<%= n+1 %>]" placeholder="Enter Choice <%= n+1 %>">
+    </td>
+    <td><a class="del_choice" href="#">Delete</a></td>
+    <td><a class="add_choice" href="#">Add</a></td>
+  </tr>
+<% end %>
 
-  <tr>
-    <td><label class="label" for="question">Question</label></td>
-    <td><input type="text" name="question[question_1]" placeholder="Enter Question"></td>
-    <td><a class="del_question" href="#">Delete</a></td>
-      <td><a class="add_question" href="#">Add</a></td>
-  </tr>
-  <tr>
-    <td><label class="label" for="choices">Choices</label></td>
-  </tr>
-  <% 2.times do |n| %>
-    <tr id="choice_<%= n+1 %>">
-      <td></td>
-      <td><input type="text" name="choice[choice_<%= n+1 %>]" placeholder="Enter Choice <%= n+1 %>">
-      </td>
-      <td><a class="del_choice" href="#">Delete</a></td>
-      <td><a class="add_choice" href="#">Add</a></td>
-    </tr>
-  <% end %>
+
