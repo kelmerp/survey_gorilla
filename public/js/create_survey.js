@@ -16,4 +16,6 @@ $(document).ready(function() {
     $(new_choice).find('td:nth-child(2)').find('input').attr("placeholder", "Enter Choice " + next_id);
   });
 
+
+
 });
