@@ -29,9 +29,7 @@ end
 
 post "/survey/submit" do
   p params
-
-  @response = Response.create()
-
+  @response = Response.create(:taker_id => current_user.id, :choice_id => params[:])
    
   # redirect to "/survey/#{survey.id}/results"
 end
