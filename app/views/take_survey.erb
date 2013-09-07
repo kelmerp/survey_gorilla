@@ -11,7 +11,7 @@
       <ul class="choices">
         <% q.choices.each do |c| %>
           <li>  
-            <input type="radio" name="question[<%=q.id%>]" value="<%=c.id %>"><%=c.choice %>
+            <input type="radio" name="question[q_<%=q.id%>]" value="<%=c.id %>"><%=c.choice %>
           </li>
         <% end %>
       </ul>
