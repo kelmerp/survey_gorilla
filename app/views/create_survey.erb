@@ -7,19 +7,19 @@
         <td><input type="text" name="survey[title]" placeholder="Enter Title" value=""></td>
       </tr>
       <tr>
-        <td><label class="label" for="password">Question</label></td>
+        <td><label class="label" for="question">Question</label></td>
         <td><input type="text" name="question_1[question]" placeholder="Enter Question"></td>
       </tr>
-      <tr>
-        <td><label class="label" for="password">Choices</label></td>
-        <td><input type="text" name="choice_1[choice]" placeholder="Enter Choice One"></td>
-      </tr>
-      <tr>
-        <td></td><td><input type="text" name="choice_2[choice]" placeholder="Enter Choice Two"></td>
-      </tr>
-      <tr>
-        <td></td><td><input type="text" name="choice_3[choice]" placeholder="Enter Choice Three"></td>
-      </tr>
+      <tr><td><label class="label" for="choices">Choices</label></td></tr>
+      <% 3.times do |n| %>
+        <tr id="choice_<%=n+1%>">
+          <td></td>
+          <td><input type="text" name="choice[choice_<%=n%>]" placeholder="Enter Choice <%= n + 1 %>">
+          </td>
+          <td id="del_choice"><a href="#">Delete</a></td>
+          <td id="add_choice"><a href="#">Add</a></td>
+        </tr>
+      <% end %>
   <!--     <label class="label" for="password">Question</label>
       <input type="text" name="question" placeholder="Enter Question"><br> -->
     </table>
