@@ -11,13 +11,15 @@ get '/survey/:id' do
 end
 
 get '/survey/:survey_id/results' do
-  @survey_id = params[:survey_id]
+  @survey = Survey.find(params[:survey_id])
+  @questions = @survey.questions
+
+  erb :view_results
 end
 
 # POST ==============================
 
 post '/survey/create' do
-  p params
   @survey = Survey.create(params[:survey])
   @question = Question.create(:question => params[:question][:question_1])
   @choice_one = Choice.create(:choice => params[:choice][:choice_1])
@@ -32,9 +34,13 @@ post '/survey/create' do
 end
 
 post "/survey/submit" do
-  p params
-  @response = Response.create(:taker_id => current_user.id, :choice_id => params[:question])
+  params[:question].each do |key,value|
+    p value
+    @taker_response = Response.new(:taker_id => current_user.id, :choice_id => value.to_i)
+    @taker_response.save
+  end
+
   survey_id = params[:survey_id]
-  # "hello Nick"
+
   redirect to "/survey/#{survey_id}/results"
 end
