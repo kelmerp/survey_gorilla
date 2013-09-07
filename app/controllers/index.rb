@@ -9,7 +9,8 @@ get '/sign-out' do
 end
 
 get '/new_question' do
-  erb :_new_question
+    erb :_new_question, :layout => false
+  
 end
 
 ########## POST ROUTES ##########

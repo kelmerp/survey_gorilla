@@ -1,6 +1,5 @@
 $(document).ready(function() {
   
-
   $('form').on('click','.del_choice',function(event){
     $(this).parent().parent().remove();
     event.preventDefault();
@@ -22,30 +21,19 @@ $(document).ready(function() {
     event.preventDefault();
   });
 
-  // $('form').on('click', '.add_question', function(event){
-  //   var last_question = $(this).parent().parent().parent().parent().parent().find('table').last();
-  //   var next_id = parseInt($(last_question).attr('id').split('question_')[1])+1;
-    
-  //   $('.submit').before("<table id=question_" + next_id + ">" + last_question.html() + "</tr>");
-  //   event.preventDefault();
-  // });
-
   $('form').on('click', '.add_question', function(event){
-    
+    var last_question = $('form').find('table').last();
+  
+    var next_id = parseInt($(last_question).attr('id').split('question_')[1]) + 1;
+  
     $.ajax({
       type: "GET",
-      url: "/new_question"})
-      .done(function(html, :layout => false ) {
-        $('.submit').before(html);
+      url: "/new_question",
+      dataType: ""
+    }).done(function(html) {
+        $('.submit').before("<table id=question_" + next_id + ">" + html + "</table>");
     });
 
-
-
-    // var last_question = $(this).parent().parent().parent().parent().parent().find('table').last();
-    // var next_id = parseInt($(last_question).attr('id').split('question_')[1])+1;
-    
-    // $('.submit').before(new_question);
     event.preventDefault();
   });
-
 });
