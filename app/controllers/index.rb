@@ -8,6 +8,10 @@ get '/sign-out' do
   redirect to "/"
 end
 
+get '/new_question' do
+  erb :_new_question
+end
+
 ########## POST ROUTES ##########
 post '/sign-in' do
   p params
@@ -32,3 +36,4 @@ post '/sign-up' do
     erb :index
   end
 end
+
