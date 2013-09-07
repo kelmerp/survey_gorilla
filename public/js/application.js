@@ -1,11 +1,5 @@
-
-
-
-
 $(document).ready(function() {
 
-  
-  
   $(document.forms['sign-up']['user[password]']).on('keyup', function(){
     var sign_up_pass = document.forms['sign-up']['user[password]'].value.length;
     if (sign_up_pass < 6)
@@ -35,5 +29,8 @@ $(document).ready(function() {
     }    
   })
 
+  $('#del_choice a').on('click',function(event){
+    alert('check');
+  });
 
 });
