@@ -10,10 +10,10 @@ end
 
 ########## POST ROUTES ##########
 post '/sign-in' do
-  @email = params[:email]
-  user = User.authenticate(@email, params[:password])
-  if user
-    session[:user_id] = user.id
+  p params
+  @user = User.authenticate(params[:user][:email], params[:user][:password])
+  if @user
+    session[:user_id] = @user.id
     redirect "/user/#{@user.id}"
   else
     @error = "Invalid email or password."
@@ -22,7 +22,8 @@ post '/sign-in' do
 end
 
 post '/sign-up' do
-  @user = User.new params[:user]
+  p params
+  @user = User.new(params[:user])
   if @user.save
     puts @user.inspect
     session[:user_id] = @user.id
