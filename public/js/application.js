@@ -38,7 +38,8 @@ $(document).ready(function() {
     
     $(last_choice).parent().append("<tr id=choice_" + next_id + ">" + last_choice.html() + "</tr>");
     var new_choice = $(this).parent().parent().parent().find('tr').last();
-    console.log(new_choice.find('td:nth-child(2)').find('input').attr("name"));
+    $(new_choice).find('td:nth-child(2)').find('input').attr("name", "choice_" + next_id);
+    $(new_choice).find('td:nth-child(2)').find('input').attr("placeholder", "Enter Choice " + next_id);
   });
 
 });
