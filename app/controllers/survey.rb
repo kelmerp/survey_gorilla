@@ -67,7 +67,7 @@ post '/survey/create' do
   #   end
   # end
 
-  puts question_id_array
+  # puts question_id_array
 
 
     # @question = Question.create(:question => params[:question][:question_1])
@@ -79,7 +79,7 @@ post '/survey/create' do
     # @question.choices << @choice_two
     # @question.choices << @choice_three
 
-  # redirect to "/survey/#{@survey.id}"
+  redirect to "/survey/#{@survey.id}"
 end
 
 post "/survey/submit" do
