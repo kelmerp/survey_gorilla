@@ -6,12 +6,12 @@
   <ol>
     <%@questions.each do |q|%>
       <li>
-        <%=q.question%>
-        <ul>
-          <%q.choices.each do |c|%>
-            <li><%=c.choice%> = <%=c.responses.count%></li>
-          <%end%>
-        <ul>
+        <%=q.question%> 
+      <ul>
+        <%q.choices.each do |c|%>
+          <li><%=c.choice%> = <%=c.responses.count%></li>
+        <%end%>
+      </ul>
       </li>
     <%end%>
   </ol>
@@ -19,4 +19,4 @@
 
 <canvas id="myChart" width="400" height="400"></canvas>
 
-<a href="/user/<%current_user.id%>">Return to Profile</a>
+<a href="/user/<%= current_user.id %>">Return to Profile</a>
