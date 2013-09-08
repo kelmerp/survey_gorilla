@@ -31,11 +31,9 @@ $(document).ready(function() {
       url: "/new_question/" + next_id,
       dataType: ""
     }).done(function(html) {
-        $('.submit_qs').before("<table id=question_" + next_id + ">" + html + "</table>");
+        $('.submit_qs').before(html);
     });
 
-    var new_question = $('form').find('table').last();
-    $(new_question).find('tbody').find('tr').first().find('td:nth-child(2)').find('input').attr("name", "question[question_" + next_id + "]");
     event.preventDefault();
   });
 
@@ -50,8 +48,6 @@ $(document).ready(function() {
       data: data
     });
 
-
     event.preventDefault();
   });
-
 });

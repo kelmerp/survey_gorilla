@@ -9,7 +9,6 @@ get '/sign-out' do
 end
 
 get '/new_question/:id' do
-  
   @qid = params[:id]
   puts @qid
   erb :_new_question, :layout => false
