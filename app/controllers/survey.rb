@@ -17,6 +17,19 @@ get '/survey/:survey_id/results' do
   erb :view_results
 end
 
+get '/survey/:survey_id/charts' do
+  @survey = Survey.find(params[:survey_id])
+  @questions = @survey.questions
+  @responses = @survey.responses
+  @choices = @survey.choices
+
+  send_hash = {:survey => @survey, :questions => @questions, 
+                :responses => @responses, :choices => @choices}
+  puts send_hash
+  send_hash.to_json
+
+end
+
 # POST ==============================
 
 post '/survey/create' do
