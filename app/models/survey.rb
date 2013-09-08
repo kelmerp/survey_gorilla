@@ -3,4 +3,7 @@ class Survey < ActiveRecord::Base
   has_many :sessions
   has_many :takers, through: :sessions, source: :taker, foreign_key: :user_id
   has_many :questions
+
+  validates :title, presence: true 
+  validates :creator, presence: true 
 end
