@@ -30,16 +30,14 @@ post '/survey/create' do
       value.each do |question_key,question_value|
         @new_question = Question.create!(:question => question_value,
          :survey_id => @survey.id)
-        @survey.questions << @new_question
-        params[question_key]
         params[question_key].each do |choice_key,choice_value|
-          @new_choice = Choice.create!(:choice => choice_value)
-          @new_question.choices << @new_choice
+          @new_choice = Choice.create!(:choice => choice_value,
+           :question_id => @new_question.id)
         end
       end
     end 
   end
-#   redirect to "/survey/#{@survey.id}"
+  redirect to "/survey/#{@survey.id}"
 end
 
 post "/survey/submit" do
