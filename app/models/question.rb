@@ -2,6 +2,6 @@ class Question < ActiveRecord::Base
   belongs_to :survey
   has_many :choices 
 
-  validates :title, presence: true 
-  validates :creator, presence: true 
+  validates :question, presence: true 
+  validates :survey, presence: true 
 end
