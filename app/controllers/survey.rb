@@ -21,6 +21,7 @@ end
 
 post '/survey/create' do
   puts params.inspect
+
   @survey = Survey.create(params[:survey])
   @question = Question.create(:question => params[:question][:question_1])
   @choice_one = Choice.create(:choice => params[:choice][:choice_1])
