@@ -1,55 +1,57 @@
-<h1><%= current_user.email %></h1>
+<div class="container">  
+  <h1 id="name_header"><%= current_user.email %></h1>
 
-<form id="create_survey" method="get" action="/survey/create">
-  <div class="submit"><input type="submit" value="Create A Survey!"></div>
-</form>
+  <form id="create_survey" method="get" action="/survey/create">
+    <div class="submit"><input id="button" type="submit" value="Create A Survey!"></div>
+  </form>
 
-<div id="surveys">
-  <div class = "survey_list left">
-    <div class="profile_subheader">Take a Survey</div>
-    <% unless @untaken_surveys.empty? %>
+  <div id="surveys">
+    <div class = "survey_list left">
+      <div class="profile_subheader">Take a Survey</div>
+      <% unless @untaken_surveys.empty? %>
+          <table>
+            <tr> 
+              <td>Survey Title</td>
+              <td>Creator</td>
+            </tr>
+          <% @untaken_surveys.each do |u| %>
+            <tr>
+              <td>
+                <a href="/survey/<%= u.id %>"><%= u.title %></a>
+              </td>
+              <td>
+                
+              </td>
+            </tr>
+          <% end %>
+          </table>
+      <% else %>
+        All Surveys Taken
+      <% end %>
+    </div>
+
+    <div class = "survey_list right">
+      <div class="profile_subheader">My Surveys</div>
+      <% unless @made_survey.empty? %>
         <table>
-          <tr> 
-            <td>Survey Title</td>
-            <td>Creator</td>
-          </tr>
-        <% @untaken_surveys.each do |u| %>
-          <tr>
+            <tr> 
+              <td>Survey Title</td>
+              <td>Taken</td>
+            </tr>
+          <% @made_survey.each do |u| %>
             <td>
-              <a href="/survey/<%= u.id %>"><%= u.title %></a>
+              <a href="/survey/<%= u.id %>/results"><%= u.title %></a>
             </td>
             <td>
-              
+              <%= u.takers.count %>
             </td>
-          </tr>
-        <% end %>
+          <% end %>
         </table>
-    <% else %>
-      All Surveys Taken
-    <% end %>
-  </div>
-
-  <div class = "survey_list right">
-    <div class="profile_subheader">My Surveys</div>
-    <% unless @made_survey.empty? %>
-      <table>
-          <tr> 
-            <td>Survey Title</td>
-            <td>Taken</td>
-          </tr>
-        <% @made_survey.each do |u| %>
-          <td>
-            <a href="/survey/<%= u.id %>/results"><%= u.title %></a>
-          </td>
-          <td>
-            <%= u.takers.count %>
-          </td>
-        <% end %>
-      </table>
-    <% else %>
-      <div id="create_survey_link">
-        <a href = "/survey/create" >Create a Survey!</a>
-      </div>
-    <% end %>
+      <% else %>
+        <div id="create_survey_link">
+          <a href = "/survey/create" >Create a Survey!</a>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
