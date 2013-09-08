@@ -37,17 +37,14 @@ $(document).ready(function() {
     event.preventDefault();
   });
 
-  $('form').on('click', '#submit_qs_button',function (event) {
+  $('form').on('click', '#submit_qs_button',function () {
     
     var data = $('form').serialize();
-    console.log(data);
     
     $.ajax({
       type: "POST",
       url: "create",
       data: data
     });
-
-    event.preventDefault();
   });
 });

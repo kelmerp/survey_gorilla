@@ -1,6 +1,9 @@
 .header {
   color: white;
   background-color: black;
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
 .header ul {
@@ -46,6 +49,7 @@
 }
 
 .container {
+  margin-top: 60px;
   padding-left: 20px;
   background-color: #F2F2F2;
 }
@@ -68,8 +72,31 @@ body {
   padding: 10px;
 }
 
-#myChart {
-  position: absolute;
-  left: 400px;
+.profile_subheader {
+  text-align: center;
+  border-bottom: 1px solid black;
+  
+  font-weight: bold;
 }
 
+#surveys {
+  margin: auto;
+  height: 500px;
+  width: 50%;
+}
+
+.survey_list {
+  border: 1px solid black;
+  width: 45%;
+  margin-right: 20px;
+}
+
+.left {
+  float: left;
+  text-align: left;
+}
+
+.right {
+  float: right;
+  text-align: center;
+}
