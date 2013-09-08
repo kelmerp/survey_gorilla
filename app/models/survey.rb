@@ -5,5 +5,6 @@ class Survey < ActiveRecord::Base
   has_many :questions
 
   validates :title, presence: true 
-  validates :creator_id, presence: true 
+  validates :creator_id, presence: true
+  mount_uploader :photo_url, Uploader
 end
