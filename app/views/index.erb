@@ -1,37 +1,40 @@
 <div class="container">
   <h1>Sign In</h1>
 
-  <div class="errors"><%= @error if @error%></div>
+  <span>
+    <div class="errors"><%= @error if @error%></div>
 
-  <form id="sign-in" method="post" action="/sign-in">
-    <table>
-      <tr>
-        <td><label class="label" for="email">Email</label></td>
-        <td><input type="email" name="user[email]" placeholder="me@example.com"></td>
-      </tr>
-      <tr>
-        <td><label class="label" for="user[password]">Password</label></td>
-        <td><input type="password" name="user[password]" placeholder="6 or more characters"></td>
-      </tr>
-    </table>
-    <input id="button" type="submit" value="Sign In">
-  </form>
+    <form id="sign-in" method="post" action="/sign-in">
+      <table>
+        <tr>
+          <td><label class="label" for="email"></label></td>
+          <td><input type="email" name="user[email]" placeholder="email"></td>
+        </tr>
+        <tr>
+          <td><label class="label" for="user[password]"></label></td>
+          <td><input type="password" name="user[password]" placeholder="password"></td>
+        </tr>
+      </table>
+      <input id="button" type="submit" value="Sign In">
+    </form>
+  </span>
 
   <h1>Sign Up</h1>
-
-  <form id="sign-up" method="post" action="/sign-up">
-    <table>
-      <tr>
-        <td><label class="label" for="user[email]">Email</label></td>
-        <td><input id="sign_up_email" type="email" name="user[email]" placeholder="me@example.com"></td>
-        <td><span id="email-errors" class="errors"></span></td>
-      </tr>
-      <tr>
-        <td><label class="label" for="password">Password</label></td>
-        <td><input id="sign_up_pass" type="password" name="user[password]" placeholder="6 or more characters"></td>
-        <td><span id="entered_password-errors" class="errors"></span></td>    
-      </tr>
-    </table>
-    <input id="button" type="submit" value="Sign Up">
-    </form>
+  <span>
+    <form id="sign-up" method="post" action="/sign-up">
+      <table>
+        <tr>
+          <td><label class="label" for="user[email]"></label></td>
+          <td><input id="sign_up_email" type="email" name="user[email]" placeholder="email"></td>
+          <td><span id="email-errors" class="errors"></span></td>
+        </tr>
+        <tr>
+          <td><label class="label" for="password"></label></td>
+          <td><input id="sign_up_pass" type="password" name="user[password]" placeholder="password"></td>
+          <td><span id="entered_password-errors" class="errors"></span></td>    
+        </tr>
+      </table>
+      <input id="button" type="submit" value="Sign Up">
+      </form>
+  </span>
 </div>
