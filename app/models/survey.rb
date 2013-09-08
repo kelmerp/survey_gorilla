@@ -5,5 +5,5 @@ class Survey < ActiveRecord::Base
   has_many :questions
 
   validates :title, presence: true 
-  validates :creator, presence: true 
+  validates :creator_id, presence: true 
 end
