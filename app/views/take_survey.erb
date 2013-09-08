@@ -4,6 +4,10 @@
   <a href='/sign-in'>Log In to Take Survey</a>
 <% end %>
 
+<% unless @survey.photo_url.nil? %>
+  <img src = <%= @survey.photo_url %> 
+<% end %>
+
 <form action='/survey/submit' method="POST">
   <% @survey.questions.each do |q| %>
     <div class="questions">

@@ -1,12 +1,12 @@
 <h1>Create Survey</h1>
 
-<form method="post" action="/survey/create">
+<form method="post" action="/survey/create" enctype="multipart/form-data">
   <table>
     <tr>
       <td><label class="label" for="email">Title</label></td>
       <td><input required="required" type="text" name="survey[title]" placeholder="Enter Title" value=""></td>
     </tr>
-    
+    <tr><input type="file" name="image" /></tr>
     <table id="question_1">
       <tr>
         <td><label class="label" for="question">Question</label></td>
