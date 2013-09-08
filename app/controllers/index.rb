@@ -1,5 +1,6 @@
 ########## GET ROUTES ##########
 get '/' do
+  redirect "/user/#{current_user.id}" if session[:user_id]
   erb :index
 end
 
