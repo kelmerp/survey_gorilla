@@ -1,36 +1,37 @@
+<div class="container">
+  <h1>Sign In</h1>
 
-<h1>Sign In</h1>
+  <div class="errors"><%= @error if @error%></div>
 
-<div class="errors"><%= @error if @error%></div>
-
-<form id="sign-in" method="post" action="/sign-in">
-  <table>
-    <tr>
-      <td><label class="label" for="email">Email</label></td>
-      <td><input type="email" name="user[email]" placeholder="e.g., me@example.com"></td>
-    </tr>
-    <tr>
-      <td><label class="label" for="user[password]">Password</label></td>
-      <td><input type="password" name="user[password]" placeholder="6 or more characters"></td>
-    </tr>
-  </table>
-  <input id="sign_in_button" type="submit" value="Sign In">
-</form>
-
-<h1>Sign Up</h1>
-
-<form id="sign-up" method="post" action="/sign-up">
-  <table>
-    <tr>
-      <td><label class="label" for="user[email]">Email</label></td>
-      <td><input id="sign_up_email" type="email" name="user[email]" placeholder="e.g., me@example.com"></td>
-      <td><span id="email-errors" class="errors"></span></td>
-    </tr>
-    <tr>
-      <td><label class="label" for="password">Password</label></td>
-      <td><input id="sign_up_pass" type="password" name="user[password]" placeholder="6 or more characters"></td>
-      <td><span id="entered_password-errors" class="errors"></span></td>    
-    </tr>
-  </table>
-  <input id="sign_up_button"type="submit" value="Sign Up">
+  <form id="sign-in" method="post" action="/sign-in">
+    <table>
+      <tr>
+        <td><label class="label" for="email">Email</label></td>
+        <td><input type="email" name="user[email]" placeholder="me@example.com"></td>
+      </tr>
+      <tr>
+        <td><label class="label" for="user[password]">Password</label></td>
+        <td><input type="password" name="user[password]" placeholder="6 or more characters"></td>
+      </tr>
+    </table>
+    <input id="button" type="submit" value="Sign In">
   </form>
+
+  <h1>Sign Up</h1>
+
+  <form id="sign-up" method="post" action="/sign-up">
+    <table>
+      <tr>
+        <td><label class="label" for="user[email]">Email</label></td>
+        <td><input id="sign_up_email" type="email" name="user[email]" placeholder="me@example.com"></td>
+        <td><span id="email-errors" class="errors"></span></td>
+      </tr>
+      <tr>
+        <td><label class="label" for="password">Password</label></td>
+        <td><input id="sign_up_pass" type="password" name="user[password]" placeholder="6 or more characters"></td>
+        <td><span id="entered_password-errors" class="errors"></span></td>    
+      </tr>
+    </table>
+    <input id="button" type="submit" value="Sign Up">
+    </form>
+</div>
