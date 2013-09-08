@@ -4,7 +4,7 @@
 
 <div class="results">
   <ol>
-    <%@question.each do |q|%>
+    <%@questions.each do |q|%>
       <li>
         <%=q.question%>
         <ul>
@@ -17,4 +17,6 @@
   </ol>
 </div>
 
-<a heref="/user/<%current_user.id%>">Return to Profile</a>
+<canvas id="myChart" width="400" height="400"></canvas>
+
+<a href="/user/<%current_user.id%>">Return to Profile</a>
