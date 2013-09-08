@@ -49,5 +49,6 @@ $(document).ready(function() {
     });
 
     event.preventDefault();
+    //You must still redirect to the new page!!!!
   });
 });
