@@ -20,9 +20,11 @@ end
 # POST ==============================
 
 post '/survey/create' do
-  puts params.inspect
+  puts params[:image][:filename]
   @survey = Survey.new(params[:survey])
   @survey.creator_id = current_user.id
+  @survey.photo_url = params[:image]
+  puts @survey.photo_url
   @survey.save!
   question_id_array = []
   params.each do |key, value|
