@@ -23,17 +23,16 @@ post '/survey/create' do
   puts params.inspect
   @survey = Survey.new(params[:survey])
   @survey.creator_id = current_user.id
-  @survey.save
+  @survey.save!
   question_id_array = []
   params.each do |key, value|
     if key[-1] == "n"
       value.each do |question_key,question_value|
-        @new_question = Question.create(:question => question_value)
-        @survey.questions << @new_question
-        params[question_key]
+        @new_question = Question.create!(:question => question_value,
+         :survey_id => @survey.id)
         params[question_key].each do |choice_key,choice_value|
-          @new_choice = Choice.new(:choice => choice_value)
-          @new_question.choices << @new_choice
+          @new_choice = Choice.create!(:choice => choice_value,
+           :question_id => @new_question.id)
         end
       end
     end 

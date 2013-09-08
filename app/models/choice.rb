@@ -3,5 +3,5 @@ class Choice < ActiveRecord::Base
   has_many :responses
 
   validates :choice, presence: true 
-  validates :question, presence: true 
+  validates :question_id, presence: true 
 end
