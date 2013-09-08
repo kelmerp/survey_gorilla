@@ -21,12 +21,13 @@ get '/survey/:survey_id/charts' do
   send_hash = {}
   @survey = Survey.find(params[:survey_id])
   @questions = @survey.questions
-  @choices = @survey.choices
-  @responses = @survey.responses
+  
+  q_to_c_hash = {}
+  @questions.each do |q|
+    q_to_c_hash[q.question] = q.choice_counts
+  end
 
-  send_hash = {:survey => @survey, :questions => @questions, 
-                :choices => @choices}
-  send_hash[:responses] = @responses if @responses
+  send_hash = { :choices =>  q_to_c_hash }
   puts send_hash
   send_hash.to_json
 
