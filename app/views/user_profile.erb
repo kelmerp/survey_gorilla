@@ -38,12 +38,14 @@
             <td>Taken</td>
           </tr>
         <% @made_survey.each do |u| %>
-          <td>
-            <a href="/survey/<%= u.id %>/results"><%= u.title %></a>
-          </td>
-          <td>
-            <%= u.takers.count %>
-          </td>
+          <tr>
+            <td>
+              <a href="/survey/<%= u.id %>/results"><%= u.title %></a>
+            </td>
+            <td>
+              <%= u.takers.count %>
+            </td>
+          </tr>
         <% end %>
       </table>
     <% else %>
