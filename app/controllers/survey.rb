@@ -20,8 +20,10 @@ end
 # POST ==============================
 
 post '/survey/create' do
-
-  @survey = Survey.create(params[:survey])
+  puts params.inspect
+  @survey = Survey.new(params[:survey])
+  @survey.creator_id = current_user.id
+  @survey.save
   question_id_array = []
   params.each do |key, value|
     if key[-1] == "n"
