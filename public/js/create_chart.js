@@ -1,25 +1,32 @@
-$(document).ready(function() {
+var questions = $('.q_num');
 
-  //Get context with jQuery - using jQuery's .get() method.
-  var ctx = $("#myChart").get(0).getContext("2d");
-//This will get the first returned node in the jQuery collection.
-  var myNewChart = new Chart(ctx);
-  var data = [
-  {
-    value: 30,
-    color: "#F38630",
-    label: "Whatevs"
-  },
-  {
-    value: 50,
-    color: "#E0E4CC",
-    label: "Blargh"
-  },
-  {
-    value: 100,
-    color: "#69D2E7",
-    label: "Dat"
-  }     
-];
-  new Chart(ctx).Pie(data);
+$(document).ready(function() {
+  var id = $('#survey_id').text();
+  
+  $.ajax({
+    type: "GET",
+    url: '/survey/'+ id + '/charts',
+    data: {},
+    success: function() {},
+    dataType: 'json'
+  }).done(function(survey_data) {
+      var questions = survey_data.choices;
+      var q_index = 0;
+      $.each(questions, function(question, resp) {
+        var ctx = $("#myChart_"+q_index).get(0).getContext("2d");
+        choice_data = new Array();
+        $.each(resp, function(choice, ct){
+          choice_data.push({
+            value: ct,
+            color: '#'+Math.floor(Math.random()*16777215).toString(16),
+            label: choice
+          });
+        });
+        new Chart(ctx).Pie(choice_data);
+        q_index++;
+      });
+      
+  });
+
+
 });
