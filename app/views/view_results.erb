@@ -1,22 +1,25 @@
 <h1><%= @survey.title %> Results </h1>
 
+<div id="survey_id"><%= @survey.id %></div>
+
 <div id="num_completed">Surveys Completed: <%= @survey.takers.count %></div>
 
 <div class="results">
   <ol>
-    <%@questions.each do |q|%>
+    <%@questions.each_with_index do |q, i|%>
       <li>
-        <%=q.question%> 
+        <div class = "q_num"><%=q.question%></div>
       <ul>
         <%q.choices.each do |c|%>
-          <li><%=c.choice%> = <%=c.responses.count%></li>
+          <li><div id="choice"><%=c.choice%></div> = <div id="choice_ct">
+            <%=c.responses.count%></div></li>
         <%end%>
       </ul>
       </li>
+    <canvas id="myChart_<%=i%>" width="200" height="200"></canvas>
     <%end%>
   </ol>
 </div>
 
-<canvas id="myChart" width="400" height="400"></canvas>
 
 <a href="/user/<%= current_user.id %>">Return to Profile</a>
